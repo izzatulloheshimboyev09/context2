@@ -3,6 +3,11 @@ import GalleryPage from "./pages/GalleryPage";
 import PhotoDetail from "./pages/PhotoDetail";
 import MainLayout from "./layouts/MainLayout";
 
+import Home from "./public/Home";
+import About from "./public/About";
+import Contact from "./public/Contact";
+import ErrorPage from "./public/ErrorPage";
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -10,13 +15,26 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <GalleryPage />,
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/:id",
         element: <PhotoDetail />,
       },
     ],
+  },
+
+  {
+    path: "/*",
+    element: <ErrorPage />,
   },
 ]);
 
