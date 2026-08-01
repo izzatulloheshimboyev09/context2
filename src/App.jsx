@@ -1,32 +1,52 @@
-import React from "react";
-import MainLayoute from "./layoutes/MainLayoute";
-import PhotoDetail from "./Pages/PhotoDetail";
-import GalleryPage from "./Pages/GalleryPage";
-import LinkedPage from "./Pages/LinkedPage";
-import DowloadedPage from "./Pages/DowloadedPage";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-export const routes = createBrowserRouter([
+// Layout & Pages
+import MainLayout from "./layouts/MainLayout";
+import Home from "./public/Home";
+import About from "./public/About";
+import Contact from "./public/Contact";
+import PhotoDetail from "./pages/PhotoDetail";
+import LikedPage from "./pages/LikedPage";
+import DownloadedPage from "./pages/DownloadedPage";
+import ErrorPage from "./public/ErrorPage";
+
+const routes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayoute />,
+    element: <MainLayout />,
     children: [
       {
         index: true,
-        element: <GalleryPage />,
+        element: <Home />,
       },
       {
-        path: "photo/:id",
-        element: <PhotoDetail />,
+        path: "about",
+        element: <About />,
       },
       {
-        path: "download",
-        element: <DowloadedPage />,
+        path: "contact",
+        element: <Contact />,
       },
       {
         path: "liked",
-        element: <LinkedPage />,
+        element: <LikedPage />,
+      },
+      {
+        path: "downloaded",
+        element: <DownloadedPage />,
+      },
+      {
+        path: ":id",
+        element: <PhotoDetail />,
       },
     ],
   },
+  {
+    path: "*",
+    element: <ErrorPage />,
+  },
 ]);
+
+export default function App() {
+  return <RouterProvider router={routes} />;
+}
