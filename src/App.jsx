@@ -6,7 +6,6 @@ import Home from "./public/Home";
 import About from "./public/About";
 import Contact from "./public/Contact";
 import PhotoDetail from "./pages/PhotoDetail";
-import LikedPage from "./pages/LikedPage";
 import DownloadedPage from "./pages/DownloadedPage";
 import ErrorPage from "./public/ErrorPage";
 
