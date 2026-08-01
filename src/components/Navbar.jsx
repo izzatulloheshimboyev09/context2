@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { navLinks } from "../data/navbarlink";
+import { navLinks } from "../data/navbarLink";
 
-import {  FaInfoCircle,
-  FaBars,
-  FaTimes,} from 'react-icons/fa'
+import { FaInfoCircle, FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
