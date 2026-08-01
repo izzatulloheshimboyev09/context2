@@ -62,13 +62,22 @@ function Navbar() {
 
         {/* DESKTOP MENU (Katta ekranlar uchun) */}
         <div className="hidden md:flex items-center gap-10">
-          <Link className="text-xl text-blue-950" to="/">
+          <Link
+            className="z px-4 py-2 rounded-lg transition text-xl text-blue-950"
+            to="/"
+          >
             Home
           </Link>
-          <Link className="text-xl text-blue-950" to="/about">
+          <Link
+            className="hover:bg-blue-700 px-4 py-2 rounded-lg transition text-xl text-blue-950"
+            to="/about"
+          >
             About
           </Link>
-          <Link className="text-xl text-blue-950" to="/contact">
+          <Link
+            className="hover:bg-blue-700 px-4 py-2 rounded-lg transition text-xl text-blue-950"
+            to="/contact"
+          >
             Contact
           </Link>
         </div>
@@ -112,7 +121,7 @@ function Navbar() {
           </Link>
           <Link
             onClick={() => setIsOpen(false)}
-            className="text-lg text-blue-950 hover:bg-blue-100 px-4 py-2 rounded-lg transition"
+            className=" text-lg text-blue-950 hover:bg-blue-100 px-4 py-2 rounded-lg transition"
             to="/about"
           >
             About

@@ -1,10 +1,8 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @layer components {
-  .align-center {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 20px;
+  .custom {
+    @apply w-full max-w-[1480px] py-5 mx-auto px-4 sm:px-6 lg:px-8;
   }
 }

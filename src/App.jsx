@@ -1,43 +1,32 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import GalleryPage from "./pages/GalleryPage";
-import PhotoDetail from "./pages/PhotoDetail";
-import MainLayout from "./layouts/MainLayout";
+import React from "react";
+import MainLayoute from "./layoutes/MainLayoute";
+import PhotoDetail from "./Pages/PhotoDetail";
+import GalleryPage from "./Pages/GalleryPage";
+import LinkedPage from "./Pages/LinkedPage";
+import DowloadedPage from "./Pages/DowloadedPage";
+import { createBrowserRouter } from "react-router-dom";
 
-import Home from "./public/Home";
-import About from "./public/About";
-import Contact from "./public/Contact";
-import ErrorPage from "./public/ErrorPage";
-
-const routes = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: <MainLayoute />,
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <GalleryPage />,
       },
       {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/:id",
+        path: "photo/:id",
         element: <PhotoDetail />,
+      },
+      {
+        path: "download",
+        element: <DowloadedPage />,
+      },
+      {
+        path: "liked",
+        element: <LinkedPage />,
       },
     ],
   },
-
-  {
-    path: "/*",
-    element: <ErrorPage />,
-  },
 ]);
-
-export default function App() {
-  return <RouterProvider router={routes} />;
-}

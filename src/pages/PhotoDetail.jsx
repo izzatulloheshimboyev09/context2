@@ -1,32 +1,54 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { imagesData } from "../data/gallery";
-
-import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { GalleryContext } from "../context/GlobalContext";
+import Img from "../components/Img";
+import { Link, useLocation } from "react-router-dom";
+import { FaRegHeart, FaEye, FaHome } from "react-icons/fa";
+import { MdOutlineDriveFolderUpload } from "react-icons/md";
 
 function PhotoDetail() {
+  let location = useLocation();
   const { id } = useParams();
-  const navigate = useNavigate();
 
-  const photo = imagesData.find((item) => item.id === Number(id));
+  const { galleryData } = useContext(GalleryContext);
+
+  const findImage = galleryData.find((item) => item.id == id);
+
+  if (!findImage) {
+    return <h1>Rasm topilmadi</h1>;
+  }
 
   return (
-    <>
-      <Navbar />
-      <div className="ali mx-auto px-4 py-8 max-w-5xl">
-        <button></button>
+    <div className=" custom  max-w-5xl mx-auto p-5 flex flex-col items-center justify-center">
+      <div className="relative rounded-xl overflow-hidden group w-200 flex mx-auto text-center">
+        {/* Asosiy rasm */}
+        <img
+          src={findImage.src}
+          alt={findImage.title}
+          className="w-full rounded-xl"
+        />
 
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
-          <div className="bg-gray-50 flex items-center justify-center p-4 sm:p-8 h-screen">
-            <img
-              src={photo?.src}
-              alt={photo?.title}
-              className="max-h-[75vh] w-auto  rounded-lg shadow-md"
-            />
-          </div>
+        {/* Hover iconlari */}
+        <Img item={findImage} />
+        <div className="absolute bottom-3 left-3">
+          <button className="bg-white p-2 rounded-full hover:bg-gray-800 hover:text-white">
+            {location.pathname.startsWith("/photo/") ? (
+              <Link to="/">
+                <FaHome />
+              </Link>
+            ) : (
+              <Link to={`/photo/${item.id}`}>
+                <FaEye />
+              </Link>
+            )}
+          </button>
         </div>
       </div>
-    </>
+
+      <h1 className="text-3xl font-bold mt-5">{findImage.title}</h1>
+
+      <p className="text-gray-500 mt-2">{findImage.author}</p>
+    </div>
   );
 }
 

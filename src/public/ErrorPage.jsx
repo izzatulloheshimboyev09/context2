@@ -1,7 +1,11 @@
 import React from "react";
 
 function ErrorPage() {
-  return <div></div>;
+  return (
+    <div>
+      <h1 className="text-4xl align-center">ErrorPage</h1>
+    </div>
+  );
 }
 
 export default ErrorPage;
