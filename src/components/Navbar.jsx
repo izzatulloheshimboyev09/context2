@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { navLinks } from "../data/navbarLink";
+import { navLinks } from "../data/NavbarLinks";
 
 import { FaInfoCircle, FaBars, FaTimes } from "react-icons/fa";
 
