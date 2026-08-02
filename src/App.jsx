@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 // Layout & Pages
 import MainLayout from "./layouts/MainLayoute";
@@ -6,10 +6,11 @@ import Home from "./public/Home";
 import About from "./public/About";
 import Contact from "./public/Contact";
 import PhotoDetail from "./pages/PhotoDetail";
+import LinkedPage from "./pages/LinkedPage";
 import DownloadedPage from "./pages/DownloadedPage";
 import ErrorPage from "./public/ErrorPage";
 
-const routes = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -28,7 +29,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "liked",
-        element: <LikedPage />,
+        element: <LinkedPage />,
       },
       {
         path: "downloaded",
@@ -45,7 +46,3 @@ const routes = createBrowserRouter([
     element: <ErrorPage />,
   },
 ]);
-
-export default function App() {
-  return <RouterProvider router={routes} />;
-}
